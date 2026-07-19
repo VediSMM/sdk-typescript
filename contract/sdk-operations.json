@@ -1,0 +1,1993 @@
+{
+  "schema_version": "1.0.0",
+  "contract_version": "1.0.0",
+  "contract_sha256": "0318da9e05a622860cb2cf154c6bca50e931349b3e7a8df54d76173ad961c521",
+  "operation_count": 83,
+  "operations": [
+    {
+      "operation_id": "cancelAccountConnection",
+      "method": "delete",
+      "path": "/connection-sessions/{id}",
+      "tag": "Connections",
+      "authenticated": true,
+      "scopes": [
+        "accounts:write"
+      ],
+      "request_content_types": [],
+      "response_statuses": [
+        "204",
+        "401",
+        "403",
+        "404",
+        "409",
+        "500"
+      ],
+      "capabilities": [
+        "authenticated"
+      ]
+    },
+    {
+      "operation_id": "changePassword",
+      "method": "put",
+      "path": "/me/password",
+      "tag": "Profile",
+      "authenticated": true,
+      "scopes": [
+        "profile:write"
+      ],
+      "request_content_types": [
+        "application/json"
+      ],
+      "response_statuses": [
+        "204",
+        "400",
+        "401",
+        "403",
+        "413",
+        "415",
+        "422",
+        "500"
+      ],
+      "capabilities": [
+        "authenticated"
+      ]
+    },
+    {
+      "operation_id": "checkPostConstraints",
+      "method": "post",
+      "path": "/posts/constraints",
+      "tag": "Posts",
+      "authenticated": true,
+      "scopes": [
+        "posts:read"
+      ],
+      "request_content_types": [
+        "application/json"
+      ],
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "413",
+        "415",
+        "422",
+        "500"
+      ],
+      "capabilities": [
+        "authenticated"
+      ]
+    },
+    {
+      "operation_id": "confirmAccountConnection",
+      "method": "post",
+      "path": "/connection-sessions/{id}/confirm",
+      "tag": "Connections",
+      "authenticated": true,
+      "scopes": [
+        "accounts:write"
+      ],
+      "request_content_types": [
+        "application/json"
+      ],
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "409",
+        "413",
+        "415",
+        "422",
+        "500"
+      ],
+      "capabilities": [
+        "authenticated",
+        "idempotency_key"
+      ]
+    },
+    {
+      "operation_id": "createContentTemplate",
+      "method": "post",
+      "path": "/me/templates",
+      "tag": "Preferences",
+      "authenticated": true,
+      "scopes": [
+        "profile:write"
+      ],
+      "request_content_types": [
+        "application/json"
+      ],
+      "response_statuses": [
+        "201",
+        "400",
+        "401",
+        "403",
+        "409",
+        "413",
+        "415",
+        "422",
+        "500"
+      ],
+      "capabilities": [
+        "authenticated"
+      ]
+    },
+    {
+      "operation_id": "createGroup",
+      "method": "post",
+      "path": "/groups",
+      "tag": "Groups",
+      "authenticated": true,
+      "scopes": [
+        "groups:write"
+      ],
+      "request_content_types": [
+        "application/json"
+      ],
+      "response_statuses": [
+        "201",
+        "400",
+        "401",
+        "403",
+        "413",
+        "415",
+        "422",
+        "500"
+      ],
+      "capabilities": [
+        "authenticated"
+      ]
+    },
+    {
+      "operation_id": "createPersonalToken",
+      "method": "post",
+      "path": "/personal-tokens",
+      "tag": "Personal tokens",
+      "authenticated": true,
+      "scopes": [
+        "profile:write"
+      ],
+      "request_content_types": [
+        "application/json"
+      ],
+      "response_statuses": [
+        "201",
+        "400",
+        "401",
+        "403",
+        "409",
+        "413",
+        "415",
+        "422",
+        "500"
+      ],
+      "capabilities": [
+        "authenticated"
+      ]
+    },
+    {
+      "operation_id": "createPostDraft",
+      "method": "post",
+      "path": "/posts",
+      "tag": "Posts",
+      "authenticated": true,
+      "scopes": [
+        "posts:write"
+      ],
+      "request_content_types": [
+        "application/json"
+      ],
+      "response_statuses": [
+        "201",
+        "400",
+        "401",
+        "403",
+        "409",
+        "413",
+        "415",
+        "422",
+        "500"
+      ],
+      "capabilities": [
+        "authenticated",
+        "idempotency_key"
+      ]
+    },
+    {
+      "operation_id": "createWebhook",
+      "method": "post",
+      "path": "/webhooks",
+      "tag": "Webhooks",
+      "authenticated": true,
+      "scopes": [
+        "webhooks:write"
+      ],
+      "request_content_types": [
+        "application/json"
+      ],
+      "response_statuses": [
+        "201",
+        "400",
+        "401",
+        "403",
+        "409",
+        "413",
+        "415",
+        "422",
+        "500"
+      ],
+      "capabilities": [
+        "authenticated",
+        "idempotency_key"
+      ]
+    },
+    {
+      "operation_id": "deleteContentTemplate",
+      "method": "delete",
+      "path": "/me/templates/{id}",
+      "tag": "Preferences",
+      "authenticated": true,
+      "scopes": [
+        "profile:write"
+      ],
+      "request_content_types": [],
+      "response_statuses": [
+        "204",
+        "401",
+        "403",
+        "404",
+        "412",
+        "428",
+        "500"
+      ],
+      "capabilities": [
+        "authenticated",
+        "optimistic_concurrency"
+      ]
+    },
+    {
+      "operation_id": "deleteGroup",
+      "method": "delete",
+      "path": "/groups/{id}",
+      "tag": "Groups",
+      "authenticated": true,
+      "scopes": [
+        "groups:write"
+      ],
+      "request_content_types": [],
+      "response_statuses": [
+        "204",
+        "401",
+        "403",
+        "404",
+        "412",
+        "428",
+        "500"
+      ],
+      "capabilities": [
+        "authenticated",
+        "optimistic_concurrency"
+      ]
+    },
+    {
+      "operation_id": "deleteMe",
+      "method": "delete",
+      "path": "/me",
+      "tag": "Profile",
+      "authenticated": true,
+      "scopes": [
+        "profile:write"
+      ],
+      "request_content_types": [
+        "application/json"
+      ],
+      "response_statuses": [
+        "202",
+        "400",
+        "401",
+        "403",
+        "409",
+        "413",
+        "415",
+        "422",
+        "500"
+      ],
+      "capabilities": [
+        "async_job",
+        "authenticated",
+        "idempotency_key"
+      ]
+    },
+    {
+      "operation_id": "deleteMedia",
+      "method": "delete",
+      "path": "/media/{id}",
+      "tag": "Media",
+      "authenticated": true,
+      "scopes": [
+        "media:write"
+      ],
+      "request_content_types": [],
+      "response_statuses": [
+        "204",
+        "401",
+        "403",
+        "404",
+        "409",
+        "500"
+      ],
+      "capabilities": [
+        "authenticated"
+      ]
+    },
+    {
+      "operation_id": "deletePostDraft",
+      "method": "delete",
+      "path": "/posts/{id}",
+      "tag": "Posts",
+      "authenticated": true,
+      "scopes": [
+        "posts:write"
+      ],
+      "request_content_types": [],
+      "response_statuses": [
+        "204",
+        "401",
+        "403",
+        "404",
+        "409",
+        "412",
+        "428",
+        "500"
+      ],
+      "capabilities": [
+        "authenticated",
+        "optimistic_concurrency"
+      ]
+    },
+    {
+      "operation_id": "deletePostEverywhere",
+      "method": "post",
+      "path": "/posts/{id}/delete-everywhere",
+      "tag": "Publication jobs",
+      "authenticated": true,
+      "scopes": [
+        "posts:publish"
+      ],
+      "request_content_types": [
+        "application/json"
+      ],
+      "response_statuses": [
+        "202",
+        "400",
+        "401",
+        "403",
+        "404",
+        "409",
+        "413",
+        "415",
+        "422",
+        "500"
+      ],
+      "capabilities": [
+        "async_job",
+        "authenticated",
+        "idempotency_key"
+      ]
+    },
+    {
+      "operation_id": "deleteWebhook",
+      "method": "delete",
+      "path": "/webhooks/{webhook_id}",
+      "tag": "Webhooks",
+      "authenticated": true,
+      "scopes": [
+        "webhooks:write"
+      ],
+      "request_content_types": [],
+      "response_statuses": [
+        "204",
+        "401",
+        "403",
+        "404",
+        "412",
+        "428",
+        "500"
+      ],
+      "capabilities": [
+        "authenticated",
+        "optimistic_concurrency"
+      ]
+    },
+    {
+      "operation_id": "disconnectAccount",
+      "method": "delete",
+      "path": "/accounts/{id}",
+      "tag": "Accounts",
+      "authenticated": true,
+      "scopes": [
+        "accounts:write"
+      ],
+      "request_content_types": [],
+      "response_statuses": [
+        "200",
+        "401",
+        "403",
+        "404",
+        "409",
+        "500"
+      ],
+      "capabilities": [
+        "authenticated"
+      ]
+    },
+    {
+      "operation_id": "forgotPassword",
+      "method": "post",
+      "path": "/auth/forgot-password",
+      "tag": "Auth",
+      "authenticated": false,
+      "scopes": [],
+      "request_content_types": [
+        "application/json"
+      ],
+      "response_statuses": [
+        "202",
+        "400",
+        "413",
+        "415",
+        "422",
+        "429",
+        "500",
+        "503"
+      ],
+      "capabilities": [
+        "async_job"
+      ]
+    },
+    {
+      "operation_id": "getAccount",
+      "method": "get",
+      "path": "/accounts/{id}",
+      "tag": "Accounts",
+      "authenticated": true,
+      "scopes": [
+        "accounts:read"
+      ],
+      "request_content_types": [],
+      "response_statuses": [
+        "200",
+        "401",
+        "403",
+        "404",
+        "500"
+      ],
+      "capabilities": [
+        "authenticated"
+      ]
+    },
+    {
+      "operation_id": "getAccountConnection",
+      "method": "get",
+      "path": "/connection-sessions/{id}",
+      "tag": "Connections",
+      "authenticated": true,
+      "scopes": [
+        "accounts:read"
+      ],
+      "request_content_types": [],
+      "response_statuses": [
+        "200",
+        "401",
+        "403",
+        "404",
+        "500"
+      ],
+      "capabilities": [
+        "authenticated"
+      ]
+    },
+    {
+      "operation_id": "getAnalyticsAudience",
+      "method": "get",
+      "path": "/analytics/audience",
+      "tag": "Analytics",
+      "authenticated": true,
+      "scopes": [
+        "analytics:read"
+      ],
+      "request_content_types": [],
+      "response_statuses": [
+        "200",
+        "401",
+        "403",
+        "422",
+        "500"
+      ],
+      "capabilities": [
+        "authenticated"
+      ]
+    },
+    {
+      "operation_id": "getAnalyticsNetworks",
+      "method": "get",
+      "path": "/analytics/networks",
+      "tag": "Analytics",
+      "authenticated": true,
+      "scopes": [
+        "analytics:read"
+      ],
+      "request_content_types": [],
+      "response_statuses": [
+        "200",
+        "401",
+        "403",
+        "422",
+        "500"
+      ],
+      "capabilities": [
+        "authenticated"
+      ]
+    },
+    {
+      "operation_id": "getAnalyticsSummary",
+      "method": "get",
+      "path": "/analytics/summary",
+      "tag": "Analytics",
+      "authenticated": true,
+      "scopes": [
+        "analytics:read"
+      ],
+      "request_content_types": [],
+      "response_statuses": [
+        "200",
+        "401",
+        "403",
+        "422",
+        "500"
+      ],
+      "capabilities": [
+        "authenticated"
+      ]
+    },
+    {
+      "operation_id": "getAnalyticsTimeseries",
+      "method": "get",
+      "path": "/analytics/timeseries",
+      "tag": "Analytics",
+      "authenticated": true,
+      "scopes": [
+        "analytics:read"
+      ],
+      "request_content_types": [],
+      "response_statuses": [
+        "200",
+        "401",
+        "403",
+        "422",
+        "500"
+      ],
+      "capabilities": [
+        "authenticated"
+      ]
+    },
+    {
+      "operation_id": "getContentTemplate",
+      "method": "get",
+      "path": "/me/templates/{id}",
+      "tag": "Preferences",
+      "authenticated": true,
+      "scopes": [
+        "profile:read"
+      ],
+      "request_content_types": [],
+      "response_statuses": [
+        "200",
+        "401",
+        "403",
+        "404",
+        "500"
+      ],
+      "capabilities": [
+        "authenticated"
+      ]
+    },
+    {
+      "operation_id": "getGroup",
+      "method": "get",
+      "path": "/groups/{id}",
+      "tag": "Groups",
+      "authenticated": true,
+      "scopes": [
+        "groups:read"
+      ],
+      "request_content_types": [],
+      "response_statuses": [
+        "200",
+        "401",
+        "403",
+        "404",
+        "500"
+      ],
+      "capabilities": [
+        "authenticated"
+      ]
+    },
+    {
+      "operation_id": "getMe",
+      "method": "get",
+      "path": "/me",
+      "tag": "Profile",
+      "authenticated": true,
+      "scopes": [
+        "profile:read"
+      ],
+      "request_content_types": [],
+      "response_statuses": [
+        "200",
+        "401",
+        "403",
+        "500"
+      ],
+      "capabilities": [
+        "authenticated"
+      ]
+    },
+    {
+      "operation_id": "getMedia",
+      "method": "get",
+      "path": "/media/{id}",
+      "tag": "Media",
+      "authenticated": true,
+      "scopes": [
+        "media:read"
+      ],
+      "request_content_types": [],
+      "response_statuses": [
+        "200",
+        "401",
+        "403",
+        "404",
+        "500"
+      ],
+      "capabilities": [
+        "authenticated"
+      ]
+    },
+    {
+      "operation_id": "getMediaContent",
+      "method": "get",
+      "path": "/media/{id}/content",
+      "tag": "Media",
+      "authenticated": true,
+      "scopes": [
+        "media:read"
+      ],
+      "request_content_types": [],
+      "response_statuses": [
+        "200",
+        "401",
+        "403",
+        "404",
+        "500"
+      ],
+      "capabilities": [
+        "authenticated",
+        "binary_response"
+      ]
+    },
+    {
+      "operation_id": "getNetwork",
+      "method": "get",
+      "path": "/networks/{key}",
+      "tag": "Networks",
+      "authenticated": true,
+      "scopes": [
+        "networks:read"
+      ],
+      "request_content_types": [],
+      "response_statuses": [
+        "200",
+        "401",
+        "403",
+        "404",
+        "422",
+        "500"
+      ],
+      "capabilities": [
+        "authenticated"
+      ]
+    },
+    {
+      "operation_id": "getOpenApi",
+      "method": "get",
+      "path": "/openapi.json",
+      "tag": "System",
+      "authenticated": false,
+      "scopes": [],
+      "request_content_types": [],
+      "response_statuses": [
+        "200",
+        "500"
+      ],
+      "capabilities": []
+    },
+    {
+      "operation_id": "getPersonalToken",
+      "method": "get",
+      "path": "/personal-tokens/{id}",
+      "tag": "Personal tokens",
+      "authenticated": true,
+      "scopes": [
+        "profile:read"
+      ],
+      "request_content_types": [],
+      "response_statuses": [
+        "200",
+        "401",
+        "403",
+        "404",
+        "500"
+      ],
+      "capabilities": [
+        "authenticated"
+      ]
+    },
+    {
+      "operation_id": "getPost",
+      "method": "get",
+      "path": "/posts/{id}",
+      "tag": "Posts",
+      "authenticated": true,
+      "scopes": [
+        "posts:read"
+      ],
+      "request_content_types": [],
+      "response_statuses": [
+        "200",
+        "401",
+        "403",
+        "404",
+        "500"
+      ],
+      "capabilities": [
+        "authenticated"
+      ]
+    },
+    {
+      "operation_id": "getPublicationJob",
+      "method": "get",
+      "path": "/jobs/{job_id}",
+      "tag": "Publication jobs",
+      "authenticated": true,
+      "scopes": [
+        "jobs:read"
+      ],
+      "request_content_types": [],
+      "response_statuses": [
+        "200",
+        "401",
+        "403",
+        "404",
+        "500"
+      ],
+      "capabilities": [
+        "authenticated"
+      ]
+    },
+    {
+      "operation_id": "getSession",
+      "method": "get",
+      "path": "/sessions/{id}",
+      "tag": "Sessions",
+      "authenticated": true,
+      "scopes": [
+        "profile:read"
+      ],
+      "request_content_types": [],
+      "response_statuses": [
+        "200",
+        "401",
+        "403",
+        "404",
+        "500"
+      ],
+      "capabilities": [
+        "authenticated"
+      ]
+    },
+    {
+      "operation_id": "getSignatures",
+      "method": "get",
+      "path": "/me/signatures",
+      "tag": "Preferences",
+      "authenticated": true,
+      "scopes": [
+        "profile:read"
+      ],
+      "request_content_types": [],
+      "response_statuses": [
+        "200",
+        "401",
+        "403",
+        "500"
+      ],
+      "capabilities": [
+        "authenticated"
+      ]
+    },
+    {
+      "operation_id": "getSignedMediaContent",
+      "method": "get",
+      "path": "/media-content",
+      "tag": "Media",
+      "authenticated": false,
+      "scopes": [],
+      "request_content_types": [],
+      "response_statuses": [
+        "200",
+        "404",
+        "422",
+        "500"
+      ],
+      "capabilities": [
+        "binary_response"
+      ]
+    },
+    {
+      "operation_id": "getWebhook",
+      "method": "get",
+      "path": "/webhooks/{webhook_id}",
+      "tag": "Webhooks",
+      "authenticated": true,
+      "scopes": [
+        "webhooks:read"
+      ],
+      "request_content_types": [],
+      "response_statuses": [
+        "200",
+        "401",
+        "403",
+        "404",
+        "500"
+      ],
+      "capabilities": [
+        "authenticated"
+      ]
+    },
+    {
+      "operation_id": "getWebhookDelivery",
+      "method": "get",
+      "path": "/webhooks/{webhook_id}/deliveries/{delivery_id}",
+      "tag": "Webhooks",
+      "authenticated": true,
+      "scopes": [
+        "webhooks:read"
+      ],
+      "request_content_types": [],
+      "response_statuses": [
+        "200",
+        "401",
+        "403",
+        "404",
+        "500"
+      ],
+      "capabilities": [
+        "authenticated"
+      ]
+    },
+    {
+      "operation_id": "listAccounts",
+      "method": "get",
+      "path": "/accounts",
+      "tag": "Accounts",
+      "authenticated": true,
+      "scopes": [
+        "accounts:read"
+      ],
+      "request_content_types": [],
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "422",
+        "500"
+      ],
+      "capabilities": [
+        "authenticated",
+        "cursor_pagination"
+      ]
+    },
+    {
+      "operation_id": "listAnalyticsPosts",
+      "method": "get",
+      "path": "/analytics/posts",
+      "tag": "Analytics",
+      "authenticated": true,
+      "scopes": [
+        "analytics:read"
+      ],
+      "request_content_types": [],
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "422",
+        "500"
+      ],
+      "capabilities": [
+        "authenticated",
+        "cursor_pagination"
+      ]
+    },
+    {
+      "operation_id": "listAuditEvents",
+      "method": "get",
+      "path": "/audit-events",
+      "tag": "Audit",
+      "authenticated": true,
+      "scopes": [
+        "profile:read"
+      ],
+      "request_content_types": [],
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "422",
+        "500"
+      ],
+      "capabilities": [
+        "authenticated",
+        "cursor_pagination"
+      ]
+    },
+    {
+      "operation_id": "listCalendarEvents",
+      "method": "get",
+      "path": "/calendar",
+      "tag": "Calendar",
+      "authenticated": true,
+      "scopes": [
+        "calendar:read"
+      ],
+      "request_content_types": [],
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "422",
+        "500"
+      ],
+      "capabilities": [
+        "authenticated",
+        "cursor_pagination"
+      ]
+    },
+    {
+      "operation_id": "listContentTemplates",
+      "method": "get",
+      "path": "/me/templates",
+      "tag": "Preferences",
+      "authenticated": true,
+      "scopes": [
+        "profile:read"
+      ],
+      "request_content_types": [],
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "422",
+        "500"
+      ],
+      "capabilities": [
+        "authenticated",
+        "cursor_pagination"
+      ]
+    },
+    {
+      "operation_id": "listGroups",
+      "method": "get",
+      "path": "/groups",
+      "tag": "Groups",
+      "authenticated": true,
+      "scopes": [
+        "groups:read"
+      ],
+      "request_content_types": [],
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "422",
+        "500"
+      ],
+      "capabilities": [
+        "authenticated",
+        "cursor_pagination"
+      ]
+    },
+    {
+      "operation_id": "listMedia",
+      "method": "get",
+      "path": "/media",
+      "tag": "Media",
+      "authenticated": true,
+      "scopes": [
+        "media:read"
+      ],
+      "request_content_types": [],
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "422",
+        "500"
+      ],
+      "capabilities": [
+        "authenticated",
+        "cursor_pagination"
+      ]
+    },
+    {
+      "operation_id": "listNetworks",
+      "method": "get",
+      "path": "/networks",
+      "tag": "Networks",
+      "authenticated": true,
+      "scopes": [
+        "networks:read"
+      ],
+      "request_content_types": [],
+      "response_statuses": [
+        "200",
+        "401",
+        "403",
+        "422",
+        "500"
+      ],
+      "capabilities": [
+        "authenticated"
+      ]
+    },
+    {
+      "operation_id": "listPersonalTokens",
+      "method": "get",
+      "path": "/personal-tokens",
+      "tag": "Personal tokens",
+      "authenticated": true,
+      "scopes": [
+        "profile:read"
+      ],
+      "request_content_types": [],
+      "response_statuses": [
+        "200",
+        "401",
+        "403",
+        "500"
+      ],
+      "capabilities": [
+        "authenticated"
+      ]
+    },
+    {
+      "operation_id": "listPosts",
+      "method": "get",
+      "path": "/posts",
+      "tag": "Posts",
+      "authenticated": true,
+      "scopes": [
+        "posts:read"
+      ],
+      "request_content_types": [],
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "422",
+        "500"
+      ],
+      "capabilities": [
+        "authenticated",
+        "cursor_pagination"
+      ]
+    },
+    {
+      "operation_id": "listPublicationJobs",
+      "method": "get",
+      "path": "/jobs",
+      "tag": "Publication jobs",
+      "authenticated": true,
+      "scopes": [
+        "jobs:read"
+      ],
+      "request_content_types": [],
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "422",
+        "500"
+      ],
+      "capabilities": [
+        "authenticated",
+        "cursor_pagination"
+      ]
+    },
+    {
+      "operation_id": "listSessions",
+      "method": "get",
+      "path": "/sessions",
+      "tag": "Sessions",
+      "authenticated": true,
+      "scopes": [
+        "profile:read"
+      ],
+      "request_content_types": [],
+      "response_statuses": [
+        "200",
+        "401",
+        "403",
+        "500"
+      ],
+      "capabilities": [
+        "authenticated"
+      ]
+    },
+    {
+      "operation_id": "listWebhookDeliveries",
+      "method": "get",
+      "path": "/webhooks/{webhook_id}/deliveries",
+      "tag": "Webhooks",
+      "authenticated": true,
+      "scopes": [
+        "webhooks:read"
+      ],
+      "request_content_types": [],
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "422",
+        "500"
+      ],
+      "capabilities": [
+        "authenticated",
+        "cursor_pagination"
+      ]
+    },
+    {
+      "operation_id": "listWebhooks",
+      "method": "get",
+      "path": "/webhooks",
+      "tag": "Webhooks",
+      "authenticated": true,
+      "scopes": [
+        "webhooks:read"
+      ],
+      "request_content_types": [],
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "422",
+        "500"
+      ],
+      "capabilities": [
+        "authenticated",
+        "cursor_pagination"
+      ]
+    },
+    {
+      "operation_id": "login",
+      "method": "post",
+      "path": "/auth/login",
+      "tag": "Auth",
+      "authenticated": false,
+      "scopes": [],
+      "request_content_types": [
+        "application/json"
+      ],
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "413",
+        "415",
+        "422",
+        "429",
+        "500",
+        "503"
+      ],
+      "capabilities": []
+    },
+    {
+      "operation_id": "logout",
+      "method": "post",
+      "path": "/auth/logout",
+      "tag": "Auth",
+      "authenticated": true,
+      "scopes": [
+        "profile:read"
+      ],
+      "request_content_types": [],
+      "response_statuses": [
+        "204",
+        "401",
+        "403",
+        "500"
+      ],
+      "capabilities": [
+        "authenticated"
+      ]
+    },
+    {
+      "operation_id": "logoutAll",
+      "method": "post",
+      "path": "/auth/logout-all",
+      "tag": "Auth",
+      "authenticated": true,
+      "scopes": [
+        "profile:read"
+      ],
+      "request_content_types": [],
+      "response_statuses": [
+        "204",
+        "401",
+        "403",
+        "500"
+      ],
+      "capabilities": [
+        "authenticated"
+      ]
+    },
+    {
+      "operation_id": "ping",
+      "method": "get",
+      "path": "/ping",
+      "tag": "System",
+      "authenticated": false,
+      "scopes": [],
+      "request_content_types": [],
+      "response_statuses": [
+        "200",
+        "500"
+      ],
+      "capabilities": []
+    },
+    {
+      "operation_id": "publishPost",
+      "method": "post",
+      "path": "/posts/{id}/publish",
+      "tag": "Publication jobs",
+      "authenticated": true,
+      "scopes": [
+        "posts:publish"
+      ],
+      "request_content_types": [
+        "application/json"
+      ],
+      "response_statuses": [
+        "202",
+        "400",
+        "401",
+        "403",
+        "404",
+        "409",
+        "412",
+        "413",
+        "415",
+        "422",
+        "500"
+      ],
+      "capabilities": [
+        "async_job",
+        "authenticated",
+        "idempotency_key"
+      ]
+    },
+    {
+      "operation_id": "refresh",
+      "method": "post",
+      "path": "/auth/refresh",
+      "tag": "Auth",
+      "authenticated": false,
+      "scopes": [],
+      "request_content_types": [
+        "application/json"
+      ],
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "413",
+        "415",
+        "422",
+        "429",
+        "500",
+        "503"
+      ],
+      "capabilities": []
+    },
+    {
+      "operation_id": "register",
+      "method": "post",
+      "path": "/auth/register",
+      "tag": "Auth",
+      "authenticated": false,
+      "scopes": [],
+      "request_content_types": [
+        "application/json"
+      ],
+      "response_statuses": [
+        "202",
+        "400",
+        "413",
+        "415",
+        "422",
+        "429",
+        "500",
+        "503"
+      ],
+      "capabilities": [
+        "async_job"
+      ]
+    },
+    {
+      "operation_id": "replaceGroupAccounts",
+      "method": "put",
+      "path": "/groups/{id}/accounts",
+      "tag": "Groups",
+      "authenticated": true,
+      "scopes": [
+        "groups:write"
+      ],
+      "request_content_types": [
+        "application/json"
+      ],
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "412",
+        "413",
+        "415",
+        "422",
+        "428",
+        "500"
+      ],
+      "capabilities": [
+        "authenticated",
+        "optimistic_concurrency"
+      ]
+    },
+    {
+      "operation_id": "replaceSignatures",
+      "method": "put",
+      "path": "/me/signatures",
+      "tag": "Preferences",
+      "authenticated": true,
+      "scopes": [
+        "profile:write"
+      ],
+      "request_content_types": [
+        "application/json"
+      ],
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "413",
+        "415",
+        "422",
+        "500"
+      ],
+      "capabilities": [
+        "authenticated"
+      ]
+    },
+    {
+      "operation_id": "resendVerification",
+      "method": "post",
+      "path": "/auth/email/resend",
+      "tag": "Auth",
+      "authenticated": false,
+      "scopes": [],
+      "request_content_types": [
+        "application/json"
+      ],
+      "response_statuses": [
+        "202",
+        "400",
+        "413",
+        "415",
+        "422",
+        "429",
+        "500",
+        "503"
+      ],
+      "capabilities": [
+        "async_job"
+      ]
+    },
+    {
+      "operation_id": "resetPassword",
+      "method": "post",
+      "path": "/auth/reset-password",
+      "tag": "Auth",
+      "authenticated": false,
+      "scopes": [],
+      "request_content_types": [
+        "application/json"
+      ],
+      "response_statuses": [
+        "204",
+        "400",
+        "413",
+        "415",
+        "422",
+        "429",
+        "500",
+        "503"
+      ],
+      "capabilities": []
+    },
+    {
+      "operation_id": "retryPostTargets",
+      "method": "post",
+      "path": "/posts/{id}/retry",
+      "tag": "Publication jobs",
+      "authenticated": true,
+      "scopes": [
+        "posts:publish"
+      ],
+      "request_content_types": [
+        "application/json"
+      ],
+      "response_statuses": [
+        "202",
+        "400",
+        "401",
+        "403",
+        "404",
+        "409",
+        "413",
+        "415",
+        "422",
+        "500"
+      ],
+      "capabilities": [
+        "async_job",
+        "authenticated",
+        "idempotency_key"
+      ]
+    },
+    {
+      "operation_id": "retryWebhookDelivery",
+      "method": "post",
+      "path": "/webhooks/{webhook_id}/deliveries/{delivery_id}/retry",
+      "tag": "Webhooks",
+      "authenticated": true,
+      "scopes": [
+        "webhooks:write"
+      ],
+      "request_content_types": [
+        "application/json"
+      ],
+      "response_statuses": [
+        "202",
+        "400",
+        "401",
+        "403",
+        "404",
+        "409",
+        "413",
+        "415",
+        "422",
+        "500"
+      ],
+      "capabilities": [
+        "async_job",
+        "authenticated",
+        "idempotency_key"
+      ]
+    },
+    {
+      "operation_id": "revokePersonalToken",
+      "method": "delete",
+      "path": "/personal-tokens/{id}",
+      "tag": "Personal tokens",
+      "authenticated": true,
+      "scopes": [
+        "profile:write"
+      ],
+      "request_content_types": [],
+      "response_statuses": [
+        "204",
+        "401",
+        "403",
+        "404",
+        "500"
+      ],
+      "capabilities": [
+        "authenticated"
+      ]
+    },
+    {
+      "operation_id": "revokeSession",
+      "method": "delete",
+      "path": "/sessions/{id}",
+      "tag": "Sessions",
+      "authenticated": true,
+      "scopes": [
+        "profile:write"
+      ],
+      "request_content_types": [],
+      "response_statuses": [
+        "204",
+        "401",
+        "403",
+        "404",
+        "500"
+      ],
+      "capabilities": [
+        "authenticated"
+      ]
+    },
+    {
+      "operation_id": "rotatePersonalToken",
+      "method": "post",
+      "path": "/personal-tokens/{id}/rotate",
+      "tag": "Personal tokens",
+      "authenticated": true,
+      "scopes": [
+        "profile:write"
+      ],
+      "request_content_types": [],
+      "response_statuses": [
+        "200",
+        "401",
+        "403",
+        "404",
+        "409",
+        "500"
+      ],
+      "capabilities": [
+        "authenticated"
+      ]
+    },
+    {
+      "operation_id": "rotateWebhookSecret",
+      "method": "post",
+      "path": "/webhooks/{webhook_id}/rotate-secret",
+      "tag": "Webhooks",
+      "authenticated": true,
+      "scopes": [
+        "webhooks:write"
+      ],
+      "request_content_types": [
+        "application/json"
+      ],
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "409",
+        "413",
+        "415",
+        "422",
+        "500"
+      ],
+      "capabilities": [
+        "authenticated",
+        "idempotency_key"
+      ]
+    },
+    {
+      "operation_id": "schedulePost",
+      "method": "post",
+      "path": "/posts/{id}/schedule",
+      "tag": "Posts",
+      "authenticated": true,
+      "scopes": [
+        "posts:publish"
+      ],
+      "request_content_types": [
+        "application/json"
+      ],
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "409",
+        "412",
+        "413",
+        "415",
+        "422",
+        "428",
+        "500"
+      ],
+      "capabilities": [
+        "authenticated",
+        "optimistic_concurrency"
+      ]
+    },
+    {
+      "operation_id": "startAccountConnection",
+      "method": "post",
+      "path": "/connection-sessions",
+      "tag": "Connections",
+      "authenticated": true,
+      "scopes": [
+        "accounts:write"
+      ],
+      "request_content_types": [
+        "application/json"
+      ],
+      "response_statuses": [
+        "200",
+        "201",
+        "400",
+        "401",
+        "403",
+        "409",
+        "413",
+        "415",
+        "422",
+        "500",
+        "502"
+      ],
+      "capabilities": [
+        "authenticated",
+        "idempotency_key"
+      ]
+    },
+    {
+      "operation_id": "testWebhook",
+      "method": "post",
+      "path": "/webhooks/{webhook_id}/test",
+      "tag": "Webhooks",
+      "authenticated": true,
+      "scopes": [
+        "webhooks:write"
+      ],
+      "request_content_types": [
+        "application/json"
+      ],
+      "response_statuses": [
+        "202",
+        "400",
+        "401",
+        "403",
+        "404",
+        "409",
+        "413",
+        "415",
+        "422",
+        "500"
+      ],
+      "capabilities": [
+        "async_job",
+        "authenticated",
+        "idempotency_key"
+      ]
+    },
+    {
+      "operation_id": "unschedulePost",
+      "method": "post",
+      "path": "/posts/{id}/unschedule",
+      "tag": "Posts",
+      "authenticated": true,
+      "scopes": [
+        "posts:publish"
+      ],
+      "request_content_types": [],
+      "response_statuses": [
+        "200",
+        "401",
+        "403",
+        "404",
+        "409",
+        "412",
+        "428",
+        "500"
+      ],
+      "capabilities": [
+        "authenticated",
+        "optimistic_concurrency"
+      ]
+    },
+    {
+      "operation_id": "updateContentTemplate",
+      "method": "patch",
+      "path": "/me/templates/{id}",
+      "tag": "Preferences",
+      "authenticated": true,
+      "scopes": [
+        "profile:write"
+      ],
+      "request_content_types": [
+        "application/json"
+      ],
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "412",
+        "413",
+        "415",
+        "422",
+        "428",
+        "500"
+      ],
+      "capabilities": [
+        "authenticated",
+        "optimistic_concurrency"
+      ]
+    },
+    {
+      "operation_id": "updateGroup",
+      "method": "patch",
+      "path": "/groups/{id}",
+      "tag": "Groups",
+      "authenticated": true,
+      "scopes": [
+        "groups:write"
+      ],
+      "request_content_types": [
+        "application/json"
+      ],
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "412",
+        "413",
+        "415",
+        "422",
+        "428",
+        "500"
+      ],
+      "capabilities": [
+        "authenticated",
+        "optimistic_concurrency"
+      ]
+    },
+    {
+      "operation_id": "updateMe",
+      "method": "patch",
+      "path": "/me",
+      "tag": "Profile",
+      "authenticated": true,
+      "scopes": [
+        "profile:write"
+      ],
+      "request_content_types": [
+        "application/json"
+      ],
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "413",
+        "415",
+        "422",
+        "500"
+      ],
+      "capabilities": [
+        "authenticated"
+      ]
+    },
+    {
+      "operation_id": "updatePersonalToken",
+      "method": "patch",
+      "path": "/personal-tokens/{id}",
+      "tag": "Personal tokens",
+      "authenticated": true,
+      "scopes": [
+        "profile:write"
+      ],
+      "request_content_types": [
+        "application/json"
+      ],
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "409",
+        "413",
+        "415",
+        "422",
+        "500"
+      ],
+      "capabilities": [
+        "authenticated"
+      ]
+    },
+    {
+      "operation_id": "updatePostDraft",
+      "method": "patch",
+      "path": "/posts/{id}",
+      "tag": "Posts",
+      "authenticated": true,
+      "scopes": [
+        "posts:write"
+      ],
+      "request_content_types": [
+        "application/json"
+      ],
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "409",
+        "412",
+        "413",
+        "415",
+        "422",
+        "428",
+        "500"
+      ],
+      "capabilities": [
+        "authenticated",
+        "optimistic_concurrency"
+      ]
+    },
+    {
+      "operation_id": "updateWebhook",
+      "method": "patch",
+      "path": "/webhooks/{webhook_id}",
+      "tag": "Webhooks",
+      "authenticated": true,
+      "scopes": [
+        "webhooks:write"
+      ],
+      "request_content_types": [
+        "application/json"
+      ],
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "409",
+        "412",
+        "413",
+        "415",
+        "422",
+        "428",
+        "500"
+      ],
+      "capabilities": [
+        "authenticated",
+        "optimistic_concurrency"
+      ]
+    },
+    {
+      "operation_id": "uploadMedia",
+      "method": "post",
+      "path": "/media",
+      "tag": "Media",
+      "authenticated": true,
+      "scopes": [
+        "media:write"
+      ],
+      "request_content_types": [
+        "multipart/form-data"
+      ],
+      "response_statuses": [
+        "201",
+        "401",
+        "403",
+        "409",
+        "413",
+        "415",
+        "422",
+        "429",
+        "500",
+        "503"
+      ],
+      "capabilities": [
+        "authenticated",
+        "multipart_upload"
+      ]
+    },
+    {
+      "operation_id": "verifyAccount",
+      "method": "post",
+      "path": "/accounts/{id}/verify",
+      "tag": "Accounts",
+      "authenticated": true,
+      "scopes": [
+        "accounts:write"
+      ],
+      "request_content_types": [],
+      "response_statuses": [
+        "200",
+        "401",
+        "403",
+        "404",
+        "422",
+        "500",
+        "502"
+      ],
+      "capabilities": [
+        "authenticated"
+      ]
+    },
+    {
+      "operation_id": "verifyEmail",
+      "method": "post",
+      "path": "/auth/email/verify",
+      "tag": "Auth",
+      "authenticated": false,
+      "scopes": [],
+      "request_content_types": [
+        "application/json"
+      ],
+      "response_statuses": [
+        "204",
+        "400",
+        "413",
+        "415",
+        "422",
+        "429",
+        "500",
+        "503"
+      ],
+      "capabilities": []
+    }
+  ]
+}

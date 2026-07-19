@@ -1,0 +1,38 @@
+{
+  "name": "@vedismm/sdk",
+  "version": "0.1.0",
+  "description": "Official TypeScript and JavaScript SDK for VediSMM API v1",
+  "license": "MIT",
+  "type": "module",
+  "sideEffects": false,
+  "engines": {
+    "node": ">=20"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/src/index.d.ts",
+      "import": "./dist/src/index.js"
+    }
+  },
+  "types": "./dist/src/index.d.ts",
+  "files": [
+    "dist/src",
+    "README.md",
+    "README.ru.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "operations:sync": "node scripts/sync-operations.mjs",
+    "operations:check": "node scripts/sync-operations.mjs --check",
+    "test": "npm run operations:check && npm run build && node --test dist/test/*.test.js",
+    "lint": "tsc -p tsconfig.json --noEmit",
+    "pack:check": "npm pack --dry-run"
+  },
+  "devDependencies": {
+    "@types/node": "24.0.15",
+    "typescript": "5.8.3"
+  }
+}
