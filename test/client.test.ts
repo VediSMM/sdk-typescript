@@ -113,6 +113,26 @@ test("does not retry an unsafe request without an idempotency key", async () => 
   assert.equal(calls, 1);
 });
 
+test("honors bounded Retry-After for safe requests", async () => {
+  const delays: number[] = [];
+  let calls = 0;
+  const client = new VediSMMClient({
+    maxRetries: 1,
+    sleep: async (milliseconds) => {
+      delays.push(milliseconds);
+    },
+    fetch: async () => {
+      calls += 1;
+      return calls === 1
+        ? json({ code: "rate_limited" }, { status: 429, headers: { "retry-after": "2" } })
+        : json({ data: { status: "ok" } });
+    },
+  });
+
+  await client.call("ping");
+  assert.deepEqual(delays, [2_000]);
+});
+
 test("maps Problem Details into specific safe API errors", async () => {
   const rateLimited = new VediSMMClient({
     maxRetries: 0,
@@ -136,6 +156,54 @@ test("maps Problem Details into specific safe API errors", async () => {
     fetch: async () => json({ code: "precondition_failed", detail: "Reload" }, { status: 412 }),
   });
   await assert.rejects(precondition.call("updatePostDraft", { path: { id: 1 }, body: {} }), PreconditionFailedError);
+});
+
+test("redacts known secrets from nested Problem Details", async () => {
+  const token = "problem-secret-token";
+  const client = new VediSMMClient({
+    accessToken: token,
+    maxRetries: 0,
+    fetch: async () =>
+      json(
+        {
+          code: "validation_failed",
+          detail: `invalid ${token}`,
+          errors: { authorization: `Bearer ${token}`, nested: { password: token } },
+        },
+        { status: 422, headers: { "content-type": "application/problem+json" } },
+      ),
+  });
+  await assert.rejects(
+    client.call("getMe"),
+    (error: unknown) =>
+      error instanceof ApiError &&
+      !error.message.includes(token) &&
+      !JSON.stringify(error.errors).includes(token),
+  );
+});
+
+test("supports multipart upload and streaming binary download", async () => {
+  let call = 0;
+  const client = new VediSMMClient({
+    accessToken: "token",
+    fetch: async (_input, init) => {
+      call += 1;
+      if (call === 1) {
+        assert.ok(init?.body instanceof FormData);
+        assert.equal(new Headers(init?.headers).has("content-type"), false);
+        return json({ data: { id: 9 } }, { status: 201 });
+      }
+      return new Response(new Uint8Array([1, 2, 3]), { headers: { "content-type": "image/png" } });
+    },
+  });
+  const form = new FormData();
+  form.append("file", new Blob([new Uint8Array([1])], { type: "image/png" }), "tiny.png");
+  await client.call("uploadMedia", { body: form });
+  const download = await client.call<ReadableStream<Uint8Array>>("getMediaContent", { path: { id: 9 } });
+  const reader = download.data.getReader();
+  const chunk = await reader.read();
+  assert.deepEqual(Array.from(chunk.value ?? []), [1, 2, 3]);
+  assert.equal((await reader.read()).done, true);
 });
 
 test("rejects redirects before credentials can cross origins", async () => {
