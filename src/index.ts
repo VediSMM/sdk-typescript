@@ -16,6 +16,7 @@ export { createIdempotencyKey, JobFailedError, paginate, waitForJob } from "./he
 export type { CursorPage, OperationCaller, PublicationJob, WaitForJobOptions } from "./helpers.js";
 export { OPERATIONS } from "./operations.js";
 export type { OperationDefinition } from "./operations.js";
+export type { ApiEnvelope, CursorEnvelope, CursorMeta, ProblemDocument, ResourceIdentity } from "./models.js";
 export { SERVICE_OPERATION_IDS, VediSMM } from "./services.js";
 export type { BoundService, OperationMethod } from "./services.js";
 export { verifyWebhookSignature } from "./webhooks.js";
