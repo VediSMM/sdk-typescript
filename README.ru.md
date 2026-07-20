@@ -17,7 +17,7 @@
 До публикации в npm устанавливайте неизменяемый Git-тег:
 
 ```bash
-npm install github:VediSMM/sdk-typescript#v0.1.0
+npm install github:VediSMM/sdk-typescript#v0.1.1
 ```
 
 Поддерживается Node.js 20+ и современные браузеры со стандартным `fetch`.

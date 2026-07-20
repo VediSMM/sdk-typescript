@@ -15,7 +15,7 @@ operations. Administrative endpoints are intentionally absent.
 Until the npm release is enabled, install the immutable Git tag directly:
 
 ```bash
-npm install github:VediSMM/sdk-typescript#v0.1.0
+npm install github:VediSMM/sdk-typescript#v0.1.1
 ```
 
 Node.js 20+ is supported. Modern browsers can use the ESM build and their

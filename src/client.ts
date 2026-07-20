@@ -322,12 +322,15 @@ export class VediSMMClient {
 
   #headers(options: CallOptions, token: string | undefined, json: boolean): Headers {
     const headers = new Headers(options.headers);
-    for (const protectedName of ["authorization", "idempotency-key", "if-match", "host", "content-length"]) {
+    for (const protectedName of ["authorization", "x-api-token", "idempotency-key", "if-match", "host", "content-length"]) {
       headers.delete(protectedName);
     }
     headers.set("accept", "application/json");
     if (json) headers.set("content-type", "application/json");
-    if (token !== undefined) headers.set("authorization", `Bearer ${token}`);
+    if (token !== undefined) {
+      headers.set("authorization", `Bearer ${token}`);
+      headers.set("x-api-token", token);
+    }
     if (options.idempotencyKey !== undefined) {
       if (options.idempotencyKey.length === 0 || /[\r\n]/.test(options.idempotencyKey)) {
         throw new ConfigurationError("idempotency key is empty or invalid");

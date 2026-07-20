@@ -7,6 +7,12 @@ async provider; the SDK never persists it. The provider is called once per
 authenticated logical request and is not called for `ping`, registration, or
 other public operations.
 
+Authenticated calls send the same in-memory credential through both the
+standard `Authorization: Bearer` header and VediSMM's `X-API-Token` fallback.
+This keeps authentication working behind proxies that remove `Authorization`;
+the API gives `Authorization` priority. Both headers are SDK-managed and must
+never be logged.
+
 ```ts
 const sdk = new VediSMM({
   accessToken: () => tokenVault.read(),

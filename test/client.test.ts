@@ -34,7 +34,7 @@ test("builds encoded paths and query values and applies Bearer auth last", async
   const result = await client.call<{ data: { id: string } }>("getAccount", {
     path: { id: "a/b" },
     query: { cursor: "x y", active: true, tag: ["one", "two"] },
-    headers: { Authorization: "Bearer attacker", "X-Trace": "trace" },
+    headers: { Authorization: "Bearer attacker", "X-API-Token": "attacker", "X-Trace": "trace" },
   });
 
   assert.equal(
@@ -43,6 +43,7 @@ test("builds encoded paths and query values and applies Bearer auth last", async
   );
   const headers = new Headers(capturedInit?.headers);
   assert.equal(headers.get("authorization"), "Bearer secret-token");
+  assert.equal(headers.get("x-api-token"), "secret-token");
   assert.equal(headers.get("x-trace"), "trace");
   assert.equal(capturedInit?.redirect, "manual");
   assert.equal(result.requestId, "req_123");
@@ -91,6 +92,7 @@ test("does not resolve or send credentials for public operations", async () => {
     },
     fetch: async (_input, init) => {
       assert.equal(new Headers(init?.headers).has("authorization"), false);
+      assert.equal(new Headers(init?.headers).has("x-api-token"), false);
       return json({ data: { status: "ok" } });
     },
   });
